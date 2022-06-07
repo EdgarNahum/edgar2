@@ -12,35 +12,25 @@ def index():
 
 @app.route('/predicao', methods=['POST'])
 def predicao():
-  Genero = int(request.form['Genero'])
-  Casado = int(request.form['Casado'])
-  Dependentes = int(request.form['Dependentes'])
-  MesesComoCliente = int(request.form['MesesComoCliente'])
-  ServicoTelefone = int(request.form['ServicoTelefone'])
-  ServicoInternet = int(request.form['ServicoInternet'])
-  ServicoSegurancaOnline = int(request.form['ServicoSegurancaOnline'])
-  ServicoBackupOnline = int(request.form['ServicoBackupOnline'])
-  ProtecaoEquipamento = int(request.form['ProtecaoEquipamento'])
-  ServicoSuporteTecnico = int(request.form['ServicoSuporteTecnico'])
-  ServicoStreamingTV = int(request.form['ServicoStreamingTV'])
-  ServicoFilmes = int(request.form['ServicoFilmes'])
-  TipoContrato = int(request.form['TipoContrato'])
-  FaturaDigital = int(request.form['FaturaDigital'])
-  FormaPagamento = int(request.form['FormaPagamento'])
-  ValorMensal = float(request.form['ValorMensal'])
+  Age = int(request.form['Age'])
+  YearsAtCompany = int(request.form['YearsAtCompany'])
+  Department = int(request.form['Department'])
+  JobSatisfaction = int(request.form['JobSatisfaction'])
+  MaritalStatus = int(request.form['MaritalStatus'])
+  WorkLifeBalance = int(request.form['WorkLifeBalance'])
+  
  
-  predicao = model.predict([[Genero,Casado,Dependentes,MesesComoCliente,ServicoTelefone,ServicoInternet,ServicoSegurancaOnline,ServicoBackupOnline,ProtecaoEquipamento,ServicoSuporteTecnico,ServicoStreamingTV,ServicoFilmes,TipoContrato,FaturaDigital,FormaPagamento,ValorMensal]])
+  predicao = model.predict([[Age,YearsAtCompany,Department,JobSatisfaction,MaritalStatus,WorkLifeBalance]])
   return render_template('resposta.html', predicao=predicao[0])
 
 app.run(debug=True)
 
-# pip install python app.py-r requirements.txt (instala as bibliotecas)
-#  (para executar)
+# pip install -r requirements.txt (instala as bibliotecas)
+# python app.py (para executar)
+
 # git add .
 # git commit -m "nomenovo"
 # git push
 
-#0 - nao houve churn
-#1 - sim
 
 

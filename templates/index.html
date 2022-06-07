@@ -1,304 +1,82 @@
-<!DOCTYPE html>
 <head>
-     <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Customer Churn</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='css.css'>      
-  <style>
-    
-    @media screen and (max-width: 500px) {
-    .col-25, .col-75, input[type=submit] {
-    width: 50%;
-    margin-top: 0;
-    }
-    }
-    .row:after {
-    content: "";
-    display: table;
-    clear: both;
-    }
-    .col-25 {
-      text-align: right;
-      margin-left: 2%;
-      float: left;
-      width: 50%;
-      
-    }
-
-    .col-75 {
-      float:left;
-      width: 0%;
-      
-    }
-    .button{
-      margin-left: 52%;
-    }
-    .contentservice {
-      justify-content: center;
-      display: flex;
-    }
-    #texto {
-      
-      width: 30%;
-      font-size: 20px;     
-      color: white;
-      margin-right: 0%;
-      margin-left: 2%;
-    }
-
-    #alinhar {
-      border-style: double;    
-      margin-left: 8.5%; 
-      width: 50%; 
-      color: rgb(2, 33, 63);
-      }
-
-      h1{
-        font-size:x-large;
-        margin-top: 0%;
-        margin-bottom: 0%;
-        text-align: center;
-        color: rgb(4, 4, 80);
-      }
-      h2{
-        margin-top: 0%;
-        margin-bottom: 0,2%;
-        text-align: center;
-        font-size:large;
-      }
-  </style>
+  <title>Análise de atrito IBM</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
-<body style="background-color:rgb(163, 197, 201)">  
-  
+<body>
 
-  <img src="https://storage.googleapis.com/kaggle-datasets-images/567482/1030103/704c43ddb62aacb8cdf8a04bbfe7ec30/dataset-cover.jpg?t=2020-03-24-11-27-39"  height="170" width="1335" alt="mulher ao telefone">
-  
-  <h1>Customer Churn </h1>   
-  <h2>Vamos Prever a rotatividade de clientes em uma indústria de telecomunicações!!</h2>
-  <div class="contentservice">  
+  <div class="p-3 bg-image" style="background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');height: 200px;"></div>
 
-        <div id="texto">O Churn é uma métrica que indica o quanto sua 
-          empresa perdeu de receita de clientes.
-          <br>
-          <br>
-          Devido a necessidade de retenção dos clientes existentes, 
-          pelo fato de que o custo de aquisição de um novo cliente é 
-          muito maior do que para manter o existente, esta análise foi
-           feita para entender o comportamento do consumidor e, por sua vez, 
-           prever a associação dos clientes, se eles deixarão ou não a empresa.
-        </div>
+  <div class="card mx-4 mx-md-5 shadow-4-strong" 
+      style="margin-top: -100px;
+          background: hsla(0, 91%, 41%, 0.8);
+          backdrop-filter: blur(30px);">
+      <div class="card-body py-4 px-md-4">
 
-        <div id="alinhar">
-          <h2>Insira seus Dados Aqui:</h2>
-          <form action="predicao" method="POST"> 
+          <div class="row d-flex justify-content-center">
+              <div class="col-lg-6">
+                  <h2 class="fw-bold mb-5">Análise de atrito IBM</h2>
+                  <form action="predicao" method="POST">
+                      <div class="row">
+                          <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                  <label for="Age" class="form-label">Age</label>
+                                  <input type="number" min="1" max="100" name="Age" class="form-control" />
+                              </div>
+                          </div>
+                          <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                  <label for="YearsAtCompany" class="form-label">Years at Company</label>
+                                  <input type="number" min="0" max="100" name="YearsAtCompany" class="form-control" />
+                              </div>
+                          </div>
+                      </div>
 
-            <div class="row">
-              <div class="col-25">
-                <label for="Genero"><b>Genero:</b></label>
-              </div>
-              <div class="col-75">
-                <select id="Genero" name="Genero" required>
-                  <option value="0">Feminino</option>
-                  <option value="1">Masculino</option>
-                </select>
-              </div>
-            </div>
-            
-            <div class="row">
-              <div class="col-25">
-                <label for="Casado"><b>Casado?:</b></label>
-              </div>
-              <div class="col-75">
-                <select id="Casado" name="Casado" required>
-                  <option value="1">Sim</option>
-                  <option value="0">Nao</option>
-                </select>
-              </div>
-            </div>
-            
-            <div class="row">
-              <div class="col-25">
-                <label for="Dependentes"><b>Dependentes?:</b></label>
-              </div>
-              <div class="col-75">
-                <select id="Dependentes" name="Dependentes" required>
-                  <option value="1">Sim</option>
-                  <option value="0">Nao</option>
-                </select> 
-              </div>
-            </div>
-            
-            <div class="row">
-              <div class="col-25">
-                <label for="MesesComoCliente"><b>Meses Como Cliente:</b></label>
-              </div>
-              <div class="col-75">
-                <input type="number" name="MesesComoCliente" required>
-              </div>
-            </div>
+                      
 
-            <div class="row">
-              <div class="col-25">
-                <label for="ServicoTelefone"><b>Serviço de Telefone:</b></label>
-              </div>
-              <div class="col-75">
-                <select id="ServicoTelefone" name="ServicoTelefone"required>
-                  <option value="1">Sim</option>
-                  <option value="0">Nao</option>
-                </select> 
-              </div>
-            </div>
-            
-            <div class="row">
-              <div class="col-25">
-                <label for="ServicoInternet"><b>Serviço de Internet:</b></label>
-              </div>
-              <div class="col-75">
-                <select id="ServicoInternet" name="ServicoInternet"required>
-                  <option value="0"> Fibra</option>
-                  <option value="2"> DSL</option>
-                  <option value="1"> Não</option>
-                </select>
-              </div>
-            </div>
-            
-            <div class="row">
-              <div class="col-25">
-                <label for="ServicoSegurancaOnline"><b>Serviço de Segurança on line:</b></label>
-              </div>
-              <div class="col-75">
-                <select id="ServicoSegurancaOnline" name="ServicoSegurancaOnline"required>
-                  <option value="0">Sim</option>
-                  <option value="1">Nao</option>
-                  <option value=" 2">Sem internet</option>
-                </select>
-              </div>
-            </div>
-            
-            <div class="row">
-              <div class="col-25">
-                <label for="ServicoBackupOnline"><b>Serviço de Backup:</b></label>
-              </div>
-              <div class="col-75">
-                <select id="ServicoBackupOnline" name="ServicoBackupOnline"required>
-                  <option value="0">Sim</option>
-                  <option value="1">Nao</option>
-                  <option value=" 2">Sem internet</option>
-                </select>
-              </div> 
-            </div>
-              
-            <div class="row">
-              <div class="col-25">  
-                <label for="ProtecaoEquipamento"><b>Serviço de Proteção:</b></label>
-              </div>
-              <div class="col-75">
-                <select id="ProtecaoEquipamento" name="ProtecaoEquipamento"required>
-                  <option value="0">Sim</option>
-                  <option value="1">Nao</option>
-                  <option value=" 2">Sem internet</option>
-                </select> 
-              </div>
-            </div>
-              
-            <div class="row">
-              <div class="col-25"> 
-                <label for="ServicoSuporteTecnico"><b>Serviço de Suporte Técnico:</b></label>
-              </div>
-             <div class="col-75">
-                <select id="ServicoSuporteTecnico" name="ServicoSuporteTecnico"required>
-                  <option value="0">Sim</option>
-                  <option value="1">Nao</option>
-                  <option value=" 2">Sem internet</option>
-                </select> 
-              </div>
-            </div>
-             
-            <div class="row">
-              <div class="col-25">
-                <label for="ServicoStreamingTV"><b>Serviço de Streaming TV:</b></label>
-               </div>
-              <div class="col-75">
-                <select id="ServicoStreamingTV" name="ServicoStreamingTV"required>
-                  <option value="0">Sim</option>
-                  <option value="1">Nao</option>
-                  <option value=" 2">Sem internet</option>
-                </select> 
-              </div>
-            </div>
-            
-            <div class="row">
-              <div class="col-25">    
-                <label for="ServicoFilmes"><b>Serviço de Filmes:</b></label>
-              </div>
-              <div class="col-75">
-                <select id="ServicoFilmes" name="ServicoFilmes"required>
-                  <option value="0">Sim</option>
-                  <option value="1">Nao</option>
-                  <option value=" 2">Sem internet</option>
-                </select>  
-              </div>           
-            </div>
-            
-            <div class="row">
-              <div class="col-25">
-                <label for="TipoContrato"><b>Tipo de Contrato:</b></label>
-              </div>
-             <div class="col-75">
-                <select id="TipoContrato" name="TipoContrato"required>
-                  <option value="0"> Mensal </option>
-                  <option value="1"> Anual </option>
-                  <option value="2"> 2 Anos </option>
-                </select>
-              </div>
-            </div>
-            
-            <div class="row">
-              <div class="col-25">
-                <label for="FaturaDigital"><b>Fatura Digital:</b></label>
-              </div>
-              <div class="col-75">
-                <select id="FaturaDigital" name="FaturaDigital"required>
-                  <option value="1">Sim</option>
-                  <option value="0">Nao</option>
-                </select>
-              </div> 
-            </div>
-            
-            <div class="row">
-              <div class="col-25">
-                <label for="FormaPagamento"><b>Forma de Pagamento :</b></label>
-              </div>
-              <div class="col-75">
-                <select id="FormaPagamento" name="FormaPagamento"required>
-                  <option value="0">Boleto Eletronico</option>
-                  <option value="1">Cartao de Credito</option>
-                  <option value="2">Boleto Impresso</option>
-                  <option value="3">Debito Automatico</option>
-                </select> 
-              </div>
-            </div>
-             
-            <div class="row">
-              <div class="col-25">
-                <label for="ValorMensal"><b>Valor Mensal:</b></label>
-              </div>
-              <div class="col-75">
-                <input type="number" name="ValorMensal" step=".01"required>
-              </div>
-            </div>
-           
+                      <div class="row">
+                          <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                  <label for="Department" class="form-label">Department</label>
+                                  <select name="Department" class="form-control" >
+                                      <option value="0">Sales</option>
+                                      <option value="1">Research & Development</option>
+                                      <option value="2">Human Resources</option>
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                  <label for="JobSatisfaction" class="form-label" >Job Satisfaction</label>
+                                  <input type="number" name="JobSatisfaction" min="1" max="4" class="form-control" />
+                              </div>
+                          </div>
+                      </div>
 
-            <div class="button">
-              <button type="submit">Analisar</button>
+                      <div class="row">
+                          <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                  <label for="MaritalStatus" class="form-label">Marital Status</label>
+                                  <select name="MaritalStatus" class="form-control">
+                                      <option value="0">Single</option>
+                                      <option value="1">Married</option>
+                                      <option value="2">Divorced</option>
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                  <label for="WorkLifeBalance" class="form-label" >Work Life Balance</label>
+                                  <input type="number" name="WorkLifeBalance" min="1" max="4" class="form-control" />
+                              </div>
+                          </div>
+                      </div>
+                      <button class="btn btn-secondary btn-block my-4" type="submit" >Enviar</button>
+                  </form>
+              </div>
           </div>
-          </form>
-        </div>
- 
+      </div>
+  </div>
 
-  </div> 
-  
-    
 </body>
 </html>

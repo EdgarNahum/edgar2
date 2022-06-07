@@ -6,27 +6,28 @@
     </script>
 </head>
 <body style="background-color:rgb(182, 209, 212)">  
-<img src="https://storage.googleapis.com/kaggle-datasets-images/567482/1030103/704c43ddb62aacb8cdf8a04bbfe7ec30/dataset-cover.jpg?t=2020-03-24-11-27-39"  height="170" width="1335"  alt="mulher ao telefone">
+    <div class="p-3 bg-image" style="background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');height: 200px;"></div>
 
-<br>
-<br>
-    {% if predicao == 1 %}
-        <div style="color:red; text-align: center; font-size: xx-large; border-style: double" ><b>Usuário Cancelou - CHURN</b></div>
-        <br>
-        
-        <center>
-            <img src="https://thumbs.dreamstime.com/b/agente-f%C3%AAmea-cansado-call-center-do-servi%C3%A7o-ao-cliente-52776588.jpg" width="400" alt="Telemarketing triste">
-        </center>
+    <div class="card mx-4 mx-md-5 shadow-4-strong" 
+        style="margin-top: -100px;
+            background: hsla(0, 0%, 100%, 0.8);
+            backdrop-filter: blur(30px);">
+        <div class="card-body py-4 px-md-4">
 
-    {% else %}
-        <div style="color: green;text-align: center; font-size: xx-large;border-style: double; "><b>Usuário não Cancelou</b></div>
-        <br>
-       
-        <center>
-            <img src="http://revistadocallcenter.com.br/images/imagem_callcenternew4_1138.jpg" width="500"  alt="Telemarketing feliz>
-        </center>
-        {% endif %}      
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-5">Análise de Atrito IBM</h2>
+                    <div>
+                        {% if predicao == 0 %}
+                            <div style="color: #047a0e; font-weight: bold; font-size: 20px;">Sem Atrito!</div>
+                        {% else %}
+                            <div style="color: #c2101b;  font-weight: bold; font-size: 20px;">Atrito!</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
-
 </html>
